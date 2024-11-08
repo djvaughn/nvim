@@ -1,32 +1,29 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		lazy = false,
 		config = function()
-			require("mason").setup()
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		lazy = false,
-		config = function()
-			require("mason-lspconfig").setup({
+			require("mason").setup({
 				ensure_install = {
 					"lua_ls",
-					"grammarly",
 					"pyright",
-					"mypy",
+					"pylint",
 					"dockerls",
 					"jsonls",
-					"prettier",
+					"black",
+					"isort",
+					"mypy",
 				},
-				automatic_installation = true,
 			})
 		end,
 	},
 	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup()
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
-		lazy = false,
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
@@ -36,18 +33,10 @@ return {
 				},
 				capabilities = capabilities,
 			})
-			lspconfig.grammarly.setup({
-				settings = {
-					["grammarly"] = {},
-				},
-				capabilities = capabilities,
-			})
 			lspconfig.pyright.setup({
 				settings = {
 					python = {
-						pythonPath = '/usr/local/bin/python',
-						autoSearchPaths = true,
-						useLibraryCodeForTypes = true,
+						pythonPath = "/usr/local/bin/python3",
 					},
 					["pyright"] = {},
 				},
@@ -65,13 +54,6 @@ return {
 				},
 				capabilities = capabilities,
 			})
-			lspconfig.pyright.setup({
-				settings = {
-					["prettier"] = {},
-				},
-				capabilities = capabilities,
-			})
-
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
