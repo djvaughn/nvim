@@ -22,7 +22,7 @@ return {
 					"dockerfile",
 					"json"
 				},
-				sync_install = false,
+				sync_install = true,
 				highlight = {
 					enable = true,
 				},

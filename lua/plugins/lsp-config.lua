@@ -13,6 +13,7 @@ return {
 					"lua_ls",
 					"grammarly",
 					"pyright",
+					"mypy",
 					"dockerls",
 					"jsonls",
 					"prettier",
@@ -40,6 +41,11 @@ return {
 			})
 			lspconfig.pyright.setup({
 				settings = {
+					python = {
+						pythonPath = '/usr/local/bin/python',
+						autoSearchPaths = true,
+						useLibraryCodeForTypes = true,
+					},
 					["pyright"] = {},
 				},
 				capabilities = capabilities,
