@@ -13,6 +13,12 @@ return {
 			vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 			vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 			vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
+			local tree = require("nvim-tree")
+			tree.setup({
+				filters = {
+					dotfiles = false,
+				},
+			})
 		end,
 	},
 }
