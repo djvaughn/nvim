@@ -74,3 +74,6 @@ ui = {
 		lazy = "💤 ",
 	},
 }
+
+vim.keymap.set("n", "pj", ":pu<CR>", {})
+vim.keymap.set("n", "pk", ":pu!<CR>", {})

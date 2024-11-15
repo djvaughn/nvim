@@ -42,13 +42,13 @@ return {
 				},
 				capabilities = capabilities,
 			})
-			lspconfig.pyright.setup({
+			lspconfig.dockerls.setup({
 				settings = {
 					["dockerls"] = {},
 				},
 				capabilities = capabilities,
 			})
-			lspconfig.pyright.setup({
+			lspconfig.jsonls.setup({
 				settings = {
 					["jsonls"] = {},
 				},
