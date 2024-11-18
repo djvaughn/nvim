@@ -37,6 +37,10 @@ return {
 				settings = {
 					python = {
 						pythonPath = "/usr/local/bin/python3",
+						analysis = {
+							autoImportCompletions = true, -- Enable auto-import completion
+							autoSearchPaths = true, -- Automatically search paths for imports
+						},
 					},
 					["pyright"] = {},
 				},
