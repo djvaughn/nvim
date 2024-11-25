@@ -40,6 +40,8 @@ return {
 						analysis = {
 							autoImportCompletions = true, -- Enable auto-import completion
 							autoSearchPaths = true, -- Automatically search paths for imports
+							typeCheckingMode = "basic",
+							diagnosticMode = "workspace",
 						},
 					},
 					["pyright"] = {},
