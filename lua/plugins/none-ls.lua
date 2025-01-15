@@ -18,6 +18,7 @@ return {
 						timeout = 10000,
 					}),
 					null_ls.builtins.diagnostics.mypy,
+					null_ls.builtins.formatting.format_r,
 				},
 			})
 			vim.keymap.set("n", "<leader>gf", function()
