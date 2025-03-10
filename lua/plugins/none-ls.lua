@@ -1,5 +1,14 @@
 return {
 	{
+		"jay-babu/mason-null-ls.nvim",
+		config = function()
+			require("mason-null-ls").setup({
+				ensure_installed = nil,
+				automatic_installation = true,
+			})
+		end,
+	},
+	{
 		"nvimtools/none-ls.nvim",
 		config = function()
 			local null_ls = require("null-ls")

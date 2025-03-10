@@ -3,17 +3,23 @@ return {
 		"williamboman/mason.nvim",
 		config = function()
 			require("mason").setup({
-				ensure_install = {
-					"lua_ls",
-					"pyright",
-					"pylint",
-					"dockerls",
-					"jsonls",
-					"black",
-					"isort",
-					"mypy",
-					"hadolint",
-					"yamllint",
+				-- ensure_install = {
+				-- 	"lua_ls",
+				-- 	"pyright",
+				-- 	"pylint",
+				-- 	"dockerls",
+				-- 	"jsonls",
+				-- 	"black",
+				-- 	"isort",
+				-- 	"mypy",
+				-- 	"hadolint",
+				-- },
+				ui = {
+					icons = {
+						package_installed = "✓",
+						package_pending = "➜",
+						package_uninstalled = "✗",
+					},
 				},
 			})
 		end,
@@ -21,7 +27,13 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
-			require("mason-lspconfig").setup()
+			require("mason-lspconfig").setup({
+				"lua_ls",
+				"pyright",
+				"dockerls",
+				"jsonls",
+
+			})
 		end,
 	},
 	{
@@ -68,17 +80,6 @@ return {
 				},
 				capabilities = capabilities,
 			})
-			lspconfig.yamlls.setup {
-				settings = {
-					yaml = {
-						schemas = {
-							["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-							["../path/relative/to/file.yml"] = "/.github/workflows/*",
-							["/path/from/root/of/project"] = "/.github/workflows/*",
-						},
-					},
-				}
-			}
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
