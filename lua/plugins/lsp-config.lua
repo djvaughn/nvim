@@ -12,6 +12,8 @@ return {
 					"black",
 					"isort",
 					"mypy",
+					"hadolint",
+					"yamllint",
 				},
 			})
 		end,
@@ -66,6 +68,17 @@ return {
 				},
 				capabilities = capabilities,
 			})
+			lspconfig.yamlls.setup {
+				settings = {
+					yaml = {
+						schemas = {
+							["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+							["../path/relative/to/file.yml"] = "/.github/workflows/*",
+							["/path/from/root/of/project"] = "/.github/workflows/*",
+						},
+					},
+				}
+			}
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})

@@ -19,6 +19,8 @@ return {
 					}),
 					null_ls.builtins.diagnostics.mypy,
 					null_ls.builtins.formatting.format_r,
+					null_ls.builtins.diagnostics.hadolint,
+					null_ls.builtins.diagnostics.yamllint,
 				},
 			})
 			vim.keymap.set("n", "<leader>gf", function()

@@ -77,3 +77,4 @@ ui = {
 
 vim.keymap.set("n", "pj", ":pu<CR>", {})
 vim.keymap.set("n", "pk", ":pu!<CR>", {})
+vim.api.nvim_set_keymap('n', 'ZZ', ':wq<CR>', { noremap = true, silent = true })
