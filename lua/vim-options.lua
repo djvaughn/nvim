@@ -4,6 +4,7 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 -- Make line numbers default
 vim.opt.number = true
+vim.o.relativenumber = true
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 -- Sync clipboard between OS and Neovim.
@@ -13,6 +14,9 @@ vim.opt.showmode = false
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
+
+-- Disable mouse mode
+vim.o.mouse = ''
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -29,7 +33,7 @@ vim.opt.signcolumn = "yes"
 
 -- Decrease update time
 vim.opt.updatetime = 250
-
+vim.o.completeopt = 'menuone,noselect'
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
 vim.opt.timeoutlen = 300
@@ -75,6 +79,4 @@ ui = {
 	},
 }
 
-vim.keymap.set("n", "pj", ":pu<CR>", {})
-vim.keymap.set("n", "pk", ":pu!<CR>", {})
-vim.api.nvim_set_keymap('n', 'ZZ', ':wq<CR>', { noremap = true, silent = true })
+
